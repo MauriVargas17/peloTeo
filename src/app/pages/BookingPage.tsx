@@ -34,10 +34,11 @@ export const BookingPage = ({ actividad }: ActivityProps) => {
     };
     
     const incrementHour = (time: string) => {
-        const [hour, minute] = time.split(':').map(Number);
+        const hour = parseInt(time.split(':')[0]); // Extrae solo la hora y conviértela a número
         const newHour = hour + 1;
-        return newHour < 10 ? `0${newHour}:00` : `${newHour}:00`;
+        return newHour < 10 ? `0${newHour}:00` : `${newHour}:00`; // Formatea la hora incrementada y resetea los minutos a cero
     };
+    
 
     useEffect(() => {
         if (selectedDate) {

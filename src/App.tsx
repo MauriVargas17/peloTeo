@@ -1,5 +1,6 @@
 import './App.css'
 import { BookingPage } from './app/pages/BookingPage'
+import { PaymentPage } from './app/pages/PaymentPage';
 
 function App() {
   const actividad = {
@@ -53,6 +54,8 @@ const bookings = [
         "days": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
         bookings: bookings
       }}/>
+
+      <PaymentPage hora='13:00'/>
     </>
   )
 }
