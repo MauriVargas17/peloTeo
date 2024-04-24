@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { PaymentComponent } from './PaymentComponent';
 
 type Booking = {
     date: string;
@@ -20,7 +21,7 @@ interface ActivityProps {
     };
 }
 
-export const BookingPage = ({ actividad }: ActivityProps) => {
+export const BookingComponent = ({ actividad }: ActivityProps) => {
     const [selectedDate, setSelectedDate] = useState('');
     const [timeInit, setTimeInit] = useState('');
     const [timeEnd, setTimeEnd] = useState('');
@@ -155,9 +156,11 @@ export const BookingPage = ({ actividad }: ActivityProps) => {
                     </label>
                 </div>
                 <button type="submit" className="w-full bg-indigo-600 text-white p-2 rounded-md hover:bg-indigo-700 transition-colors">
-                    Reservar
+                    Confirmar reserva
                 </button>
             </form>
+
+            <PaymentComponent hora='13:00'/>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-export const PaymentPage = ({hora}: {hora: string}) => {
+export const PaymentComponent = ({hora}: {hora: string}) => {
   const whatsappNumber = '+59177587417'; // Tu número de WhatsApp en formato internacional sin el signo '+'
   const whatsappMessage = encodeURIComponent(`Hola, adjunto mi comprobante de pago, acabo de hacer una reserva para las ${hora}.`); // Mensaje predefinido para WhatsApp
 
