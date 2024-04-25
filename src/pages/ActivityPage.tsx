@@ -73,9 +73,10 @@ const bookings = [
                     <FaEnvelope className="mr-2" />
                     Contacta al organizador
                     </button>
-                    <button onClick={handleReservation} className="bg-black text-white px-4 py-2 rounded-full w-full hover:bg-gray-700 transition-colors text-xl">
+                    <button onClick={handleReservation} className="bg-red-600 text-white px-4 py-2 rounded-full w-full hover:bg-red-700 transition-colors text-xl">
                     Reservar
                     </button>
+
                 </div>
                 </div>
             </div>

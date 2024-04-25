@@ -4,7 +4,7 @@ export const PaymentComponent = ({hora}: {hora: string}) => {
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
+     <div className="bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold text-center mb-4">Escanee para Pagar</h1>
         <p className="text-gray-600 text-center mb-4">Por favor, escanee el siguiente código QR para realizar su pago.</p>
         <div className="flex justify-center">
@@ -15,6 +15,7 @@ export const PaymentComponent = ({hora}: {hora: string}) => {
           Enviar comprobante por WhatsApp
         </a>
       </div>
+
     </div>
   );
 }
