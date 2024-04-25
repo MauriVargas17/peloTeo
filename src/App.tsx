@@ -1,9 +1,15 @@
 import './App.css';
-import { ActivityPage } from './app/pages/ActivityPage';
+import Login from './components/Login';
+import Main from './components/Main';
+import Register from './components/Register';
+import { ActivityPage } from './pages/ActivityPage';
 
 function App() {
   return (
     <>
+      <Login/>
+      <Register />
+      <Main/>
       <ActivityPage/>
     </>
   )
