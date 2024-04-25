@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { handleSubmit } from './srs/Register';
+import { handleSubmit } from './src/components/Register';
 
 describe('handleSubmit', () => {
   it('should handle form submission with valid data', () => {
