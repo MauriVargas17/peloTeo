@@ -84,9 +84,11 @@ function App() {
 
   return (
     <>
+    <div style={{ backgroundColor: "#002D62" }}>
       <div className="flex justify-center items-center h-screen">
         <div className="w-full max-w-md mt-14">
-          <h1 className="text-center text-gray-600 text-3xl font-bold">
+        <div className="rounded-lg bg-white p-6">
+          <h1 className="text-center text-black text-3xl font-bold">
             CREAR CUENTA
           </h1>
           <form
@@ -211,7 +213,7 @@ function App() {
             </div>
             <div className="flex items-center justify-center">
               <button
-                className="bg-gray-700 hover:bg-gray-500 text-white font-bold mt-4 py-2 px-20 rounded focus:outline-none focus:shadow-outline"
+                className="bg-red-600 hover:bg-red-700 text-white font-bold mt-4 py-2 px-20 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 Registrarse
@@ -229,7 +231,10 @@ function App() {
               </span>
             </p>
           </div>
+          </div>
+
         </div>
+      </div>
       </div>
     </>
   );
