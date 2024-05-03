@@ -3,6 +3,9 @@ import Login from './components/Login';
 import Main from './components/Main';
 import Register from './components/Register';
 import Header from './components/Header';
+import MapComponent from './components/Mapita';
+//import Mapita from './components/Mapita';
+
 import { ActivityPage } from './pages/ActivityPage';
 
 function App() {
@@ -12,6 +15,7 @@ function App() {
       <Register />
       <Main/>
       <Header/>
+      <MapComponent/>
       <ActivityPage/>
     </>
   )

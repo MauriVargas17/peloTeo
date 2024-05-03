@@ -1,6 +1,7 @@
 import { FaUserCircle, FaEnvelope } from 'react-icons/fa'; // Asegúrate de instalar react-icons
 import { ImageSlider } from '../components/ImageSlider';
 import { BookingComponent } from '../components/BookingComponent';
+import MapComponent from '../components/Mapita';
 import { useState } from 'react';
 
 export const ActivityPage = () => {
@@ -65,6 +66,7 @@ const bookings = [
                     <FaUserCircle size="150" className="mx-auto text-gray-400" />
                     <h1 className="text-5xl font-bold text-center mt-2 mb-4">Cancha de Wally COE</h1>
                     <p className="text-2xl text-center font-semibold">Dirección: Calacoto, Av. Fuerza Naval,  Nº7808</p>
+                    <MapComponent /> {/* Aquí se muestra el componente MapComponent */} 
                     <p className="text-2xl text-center font-semibold">Horario: 10:00-18:00.</p>
                     <p className="text-2xl text-center font-semibold">Organizador: Juan Perez</p>
                 </div>
