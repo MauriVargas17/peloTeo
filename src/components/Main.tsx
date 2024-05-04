@@ -1,9 +1,7 @@
-// src/pages/Main.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Buscador from './Buscador';
 import EventosDestacados from '../components/EventosDestacados';
 import Filtros from './Filtros';
-import Header from './Header';
 
 function Main() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
@@ -14,7 +12,6 @@ function Main() {
 
   return (
     <div style={{ backgroundColor: '#002d62' }}>
-      <Header />
       <div className="flex flex-col items-center justify-center min-h-screen">
         <div className="text-white text-4xl font-semibold mb-8">Encuentra Tu Próxima Actividad</div>
         <div className="container mx-auto">

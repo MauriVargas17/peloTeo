@@ -4,6 +4,7 @@ import {
   PhoneIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -212,23 +213,24 @@ function App() {
               </div>
             </div>
             <div className="flex items-center justify-center">
-              <button
+              <Link
+                to='/home'
                 className="bg-red-600 hover:bg-red-700 text-white font-bold mt-4 py-2 px-20 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
               >
                 Registrarse
-              </button>
+              </Link>
             </div>
           </form>
           <div className="text-center mt-1">
             <p>
               ¿Ya tienes cuenta?{" "}
-              <span
+              <Link
+                to='/login'
                 className="text-blue-500 cursor-pointer"
                 onClick={handleLoginClick}
               >
                 Iniciar sesión
-              </span>
+              </Link>
             </p>
           </div>
           </div>

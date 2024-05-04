@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -116,12 +117,9 @@ function App() {
                 </div>
               </div>
               <div className="flex items-center justify-center">
-              <button
-                className="bg-red-600 hover:bg-red-700 text-white font-bold mt-4 py-2 px-20 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
-                >
-                Iniciar Sesión
-              </button>
+              <Link to='/home' className="bg-red-600 hover:bg-red-700 text-white font-bold mt-4 py-2 px-20 rounded focus:outline-none focus:shadow-outline">
+                  Iniciar Sesión
+              </Link> 
 
 
               </div>
@@ -129,12 +127,9 @@ function App() {
             <div className="text-center mt-1">
               <p>
                 ¿No tienes cuenta?{" "}
-                <span
-                  className="text-blue-500 cursor-pointer"
-                  onClick={handleLoginClick}
-                >
+                <Link onClick={handleLoginClick} to='/register' className="text-blue-500 cursor-pointer">
                   Registrarse
-                </span>
+                </Link> 
               </p>
             </div>
           </div>

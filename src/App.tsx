@@ -1,19 +1,14 @@
 import './App.css';
-import Login from './components/Login';
-import Main from './components/Main';
-import Register from './components/Register';
 import Header from './components/Header';
-import { ActivityPage } from './pages/ActivityPage';
+import { BrowserRouter as Router} from 'react-router-dom';
+import { AppRoutes } from './routes/AppRoutes';
 
 function App() {
   return (
-    <>
-      <Login/>
-      <Register />
-      <Main/>
+    <Router>
       <Header/>
-      <ActivityPage/>
-    </>
+      <AppRoutes/>
+    </Router>
   )
 }
 
