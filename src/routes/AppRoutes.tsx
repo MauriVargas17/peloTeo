@@ -13,8 +13,8 @@ export const AppRoutes = () => {
     const [activity, setActivity] = useState("");
     return(
         <Routes>
-            <Route path="/login" element={ <Login/> } />
-            <Route path="/register" element={ <Register/> } />
+            <Route path="/login" element={ <Login setToken={setToken}/> } />
+            <Route path="/register" element={ <Register setToken={setToken}/> } />
             <Route
                 path="/home"
                 element={
