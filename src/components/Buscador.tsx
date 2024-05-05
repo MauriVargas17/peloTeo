@@ -1,5 +1,4 @@
 // src/components/Buscador.tsx
-
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 
 function Buscador() {
@@ -22,9 +21,9 @@ function Buscador() {
         placeholder="Buscar eventos..."
         value={busqueda}
         onChange={handleChange}
-        className="border border-002D62 bg-white-100 p-2 mr-2 rounded-lg focus:outline-none focus:border-002D62 text-lg font-semibold shadow-md text-blue-900"
+        className="border border-002D62 bg-white-100 p-2 mr-2 rounded-lg focus:outline-none focus:border-002D62 text-lg font-semibold shadow-md text-black"
       />
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600 shadow-md" style={{ backgroundColor: '#002D62' }}>
+      <button type="submit" className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:bg-red-700 shadow-md">
         Buscar
       </button>
     </form>
