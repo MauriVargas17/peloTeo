@@ -3,7 +3,7 @@ import { ImageSlider } from '../components/ImageSlider';
 import { BookingComponent } from '../components/BookingComponent';
 import { useState } from 'react';
 
-export const ActivityPage = () => {
+export const ActivityPage = ({activity}: {activity: string}) => {
     const [showBooking, setShowBooking] = useState(false);
   // Funciones para manejar eventos, como hacer una reserva
   const handleReservation = () => {
@@ -73,9 +73,10 @@ const bookings = [
                     <FaEnvelope className="mr-2" />
                     Contacta al organizador
                     </button>
-                    <button onClick={handleReservation} className="bg-black text-white px-4 py-2 rounded-full w-full hover:bg-gray-700 transition-colors text-xl">
+                    <button onClick={handleReservation} className="bg-red-600 text-white px-4 py-2 rounded-full w-full hover:bg-red-700 transition-colors text-xl">
                     Reservar
                     </button>
+
                 </div>
                 </div>
             </div>
@@ -95,6 +96,7 @@ const bookings = [
                     bookings: bookings
                 }}/>
                 </div>)}
+
     </div>
   );
 };

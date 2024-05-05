@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+# PeloTeo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+               GLWT(Good Luck With That) Public License
+                 Copyright (c) Everyone, except Author
 
-Currently, two official plugins are available:
+Everyone is permitted to copy, distribute, modify, merge, sell, publish,
+sublicense or whatever they want with this software but at their OWN RISK.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+                            Preamble
 
-## Expanding the ESLint configuration
+The author has absolutely no clue what the code in this project does.
+It might just work or not, there is no third option.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+                GOOD LUCK WITH THAT PUBLIC LICENSE
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION, AND MODIFICATION
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+  0. You just DO WHATEVER YOU WANT TO as long as you NEVER LEAVE A
+TRACE TO TRACK THE AUTHOR of the original product to blame for or hold
+responsible.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+Good luck and Godspeed.

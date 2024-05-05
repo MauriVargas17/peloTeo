@@ -117,6 +117,7 @@ export const BookingComponent = ({ actividad }: ActivityProps) => {
     
 
     return (
+        <div style={{ backgroundColor: "#002D62" }}>
         <div className="max-w-lg mx-auto p-5 bg-white shadow-md rounded-lg mt-10">
             <h1 className="text-xl font-bold text-center mb-6">Reserva para {actividad.name}</h1>
             <form className="space-y-4">
@@ -155,12 +156,13 @@ export const BookingComponent = ({ actividad }: ActivityProps) => {
                         </select>
                     </label>
                 </div>
-                <button type="submit" className="w-full bg-indigo-600 text-white p-2 rounded-md hover:bg-indigo-700 transition-colors">
+                <button type="submit" className="mt-4 block w-full text-center bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                     Confirmar reserva
                 </button>
             </form>
 
             <PaymentComponent hora='13:00'/>
+        </div>
         </div>
     );
 };
