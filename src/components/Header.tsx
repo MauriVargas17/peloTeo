@@ -6,6 +6,7 @@ function Header() {
       <div className="container mx-auto flex">
         <Link to='/home' className="text-2xl font-semibold pl-4 w-32">Peloteo</Link>
         <Link to="admin_page" className='text-2xl font-semibold pl-4 w-auto'>Reservas Agendadas</Link>
+        <Link to="/info" className='text-2xl font-semibold pl-8 w-auto'>Usuario</Link>
       </div>
     </header>
   );

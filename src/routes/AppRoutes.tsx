@@ -7,6 +7,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import { getReservations } from "../services/ReservationsService";
 import { ActivityPage } from "../pages/ActivityPage";
+import UserInfo from "../components/UserInfo";
 
 export const AppRoutes = () => {
     const [token, setToken] = useState("");
@@ -15,6 +16,7 @@ export const AppRoutes = () => {
         <Routes>
             <Route path="/login" element={ <Login/> } />
             <Route path="/register" element={ <Register/> } />
+            <Route path="/info" element={ <UserInfo/>} />
             <Route
                 path="/home"
                 element={
