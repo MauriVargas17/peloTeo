@@ -4,9 +4,12 @@ import {
   PhoneIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { registerUser } from "../services/UserService";
+import axios from "axios";
 
-function App() {
+function App({setToken}: {setToken: any}) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     lastname: "",
@@ -27,7 +30,7 @@ function App() {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let isValid = true;
     const newErrors = { ...errors };
@@ -73,8 +76,28 @@ function App() {
     setErrors(newErrors);
 
     if (isValid) {
-      console.log("Form submitted");
-      console.log(formData);
+      try {
+        // Llama a la función registerUser y pasa los datos del formulario
+        await registerUser({
+          firstName: formData.name,
+          lastName: formData.lastname,
+          email: formData.email,
+          password: formData.password
+        });
+        setToken(formData.email)
+        alert("Registro exitoso");
+        navigate('/home');  // Redirige al usuario a la página principal después del registro
+      } catch (e: unknown) {
+        if (axios.isAxiosError(e)) {
+          // Ahora sabemos que es un error de Axios y TypeScript nos permitirá acceder a .response
+          alert("Error en el registro: " + e.response?.data.message);
+        } else {
+          // Manejo de otros tipos de errores no relacionados con Axios
+          console.error("An unexpected error occurred:", e);
+        }
+      }
+    } else {
+      setErrors(newErrors);
     }
   };
 
@@ -213,12 +236,12 @@ function App() {
               </div>
             </div>
             <div className="flex items-center justify-center">
-              <Link
-                to='/home'
+              <button
+                type='submit'
                 className="bg-red-600 hover:bg-red-700 text-white font-bold mt-4 py-2 px-20 rounded focus:outline-none focus:shadow-outline"
               >
                 Registrarse
-              </Link>
+              </button>
             </div>
           </form>
           <div className="text-center mt-1">

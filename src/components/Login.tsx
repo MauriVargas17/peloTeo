@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../services/UserService";
 
-function App() {
+function App({setToken}: {setToken: any}) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -17,7 +19,7 @@ function App() {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let isValid = true;
     const newErrors = { ...errors };
@@ -25,25 +27,38 @@ function App() {
     if (formData.email.trim() === "") {
       newErrors.email = "Este campo es obligatorio";
       isValid = false;
-    } else {
-      newErrors.email = "";
     }
 
     if (formData.password.length < 8) {
-      newErrors.password =
-        "La contraseña debe tener al menos 8 caracteres";
+      newErrors.password = "La contraseña debe tener al menos 8 caracteres";
       isValid = false;
-    } else {
-      newErrors.password = "";
     }
 
     setErrors(newErrors);
 
     if (isValid) {
-      console.log("Form submitted");
-      console.log(formData);
+      try {
+        // Llamar a la función loginUser del UserService
+        const response = await loginUser(formData.email, formData.password);
+        if (response.success) {
+          setToken(response.token);
+          console.log('Login successful', response.token);
+          navigate('/home');
+          // Aquí puedes gestionar la navegación o almacenar el token en el almacenamiento local/session
+        } else {
+          // Manejar errores de login, como credenciales incorrectas
+          setErrors(prevErrors => ({
+            ...prevErrors,
+            email: 'Credenciales incorrectas',
+            password: 'Credenciales incorrectas'
+          }));
+        }
+      } catch (error) {
+        console.error('Error logging in:', error);
+      }
     }
-  };
+};
+
 
   const handleLoginClick = () => {
     console.log("Hacia registrarse");
@@ -117,9 +132,9 @@ function App() {
                 </div>
               </div>
               <div className="flex items-center justify-center">
-              <Link to='/home' className="bg-red-600 hover:bg-red-700 text-white font-bold mt-4 py-2 px-20 rounded focus:outline-none focus:shadow-outline">
-                  Iniciar Sesión
-              </Link> 
+              <button type="submit" className="bg-red-600 hover:bg-red-700 text-white font-bold mt-4 py-2 px-20 rounded focus:outline-none focus:shadow-outline">
+                Iniciar Sesión
+              </button>
 
 
               </div>

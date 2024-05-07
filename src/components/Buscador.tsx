@@ -1,11 +1,17 @@
-// src/components/Buscador.tsx
+// Buscador.tsx
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 
-function Buscador() {
+interface BuscadorProps {
+  onBusqueda: (termino: string) => void;
+}
+
+function Buscador({ onBusqueda }: BuscadorProps) {
   const [busqueda, setBusqueda] = useState<string>('');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setBusqueda(e.target.value);
+    const termino = e.target.value;
+    setBusqueda(termino);
+    onBusqueda(termino); // Llama a la función proporcionada con el término de búsqueda
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
