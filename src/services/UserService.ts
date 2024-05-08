@@ -27,6 +27,17 @@ export const registerUser = async (userData: User) => {
     }
 };
 
+// Funcion para recuperar la informacion del usuario y desplegarla
+export const retrieveUser = async (email: string) => {
+    try {
+        const users = await axios.get(API_URL);
+        const foundUser = users.data.find((user: User) => user.email === email);
+        return foundUser;
+    } catch (error) {
+        throw new Error('Retrieve failed');
+    }
+};
+
 // Función para iniciar sesión
 export const loginUser = async (email: string, password: string): Promise<LoginResponse> => {
     try {
@@ -40,5 +51,20 @@ export const loginUser = async (email: string, password: string): Promise<LoginR
         }
     } catch (error) {
         throw new Error('Login failed');
+    }
+};
+
+// Función para actualizar la informacion de usuario
+export const updateUser = async (userId: string, userData: any) => {
+    try {
+        const PUT_URL = API_URL + userId;
+        console.log('put url', PUT_URL)
+        const response = await axios.put(PUT_URL, userData);
+        if (response.data) {
+            console.log('User updated:', response.data);
+            return response.data;
+        }
+    } catch (error) {
+        throw new Error('Unable to update user');
     }
 };

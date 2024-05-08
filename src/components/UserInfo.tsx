@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { retrieveUser, updateUser } from "../services/UserService";
 
-const ProfileForm = () => {
+const ProfileForm = (token: any) => {
+  const [userId, setUserId] = useState('');
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -11,11 +12,12 @@ const ProfileForm = () => {
   const [orgEmail, setOrgEmail] = useState("");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/users/2")
-      .then((response) => {
-        const userData = response.data;
-        console.log(userData);
+  
+    const fetchData = async () => {
+      try {
+        const userData = await retrieveUser(token.token);
+
+        setUserId(userData.id)
         setOrgEmail(userData.email);
         setFormData({
           firstName: userData.firstName,
@@ -23,11 +25,14 @@ const ProfileForm = () => {
           email: userData.email,
           phoneNumber: userData.phoneNumber
         });
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching data:", error);
-      });
+      }
+    };
+  
+    fetchData();
   }, []);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,34 +42,21 @@ const ProfileForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form data:", formData);
     if (formData.email !== orgEmail) {
-      axios
-        .put("http://localhost:3000/users/2", formData)
-        .then((response) => {
-          console.log("Update successful");
-        })
-        .catch((error) => {
-          console.error("Error updating data:", error);
-        });
+      await updateUser(userId, formData)
+      console.log("Form data:", formData);
     } else {
         let newFormData = {
             firstName: formData.firstName,
             lastName: formData.lastName,
             phoneNumber: formData.phoneNumber
         }
-        axios
-        .put("http://localhost:3000/users/2", newFormData)
-        .then((response) => {
-          console.log("Update successful");
-        })
-        .catch((error) => {
-          console.error("Error updating data:", error);
-        });
+        console.log("New form data:", newFormData);
+        await updateUser(userId, newFormData)
     }
-    window.location.reload();
+    //window.location.reload();
     window.alert('Edición exitosa');
   };
 

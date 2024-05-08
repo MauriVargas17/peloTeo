@@ -33,6 +33,14 @@ export const AppRoutes = () => {
         }
       />
       <Route
+        path="/info"
+        element={
+          <PrivateRoute token={token}>
+            <UserInfo token={token}/>
+          </PrivateRoute>
+        }
+      />
+      <Route
         path="/details/:id" // Cambiado para recibir el ID de la actividad
         element={
           <PrivateRoute token={token}>
