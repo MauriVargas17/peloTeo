@@ -42,7 +42,7 @@ function App({setToken}: {setToken: any}) {
         const response = await loginUser(formData.email, formData.password);
         if (response.success) {
           setToken(response.token);
-          console.log('Login successful', response.token);
+          console.log(response.token);
           navigate('/home');
           // Aquí puedes gestionar la navegación o almacenar el token en el almacenamiento local/session
         } else {
