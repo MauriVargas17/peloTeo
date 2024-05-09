@@ -10,7 +10,7 @@ interface MapaProps {
 
 const Mapa: React.FC<MapaProps> = ({ location }) => {
   return (
-    <LoadScript googleMapsApiKey="API-KEY">
+    <LoadScript googleMapsApiKey="AIzaSyC2qZajToqbn_z2wcJOwaecPLSjhKJaLbM">
       <GoogleMap
         mapContainerStyle={{ width: '100%', height: '350px' }}
         center={location}

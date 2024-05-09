@@ -58,7 +58,7 @@ export const ActivityPage = () => {
   }
 
   return (
-    <div className="white text-black min-h-screen">
+    <div className="white text-white min-h-screen"> {/* Cambié el color del texto a blanco */}
       <div className="flex flex-col md:flex-row items-stretch justify-center">
         <div className='w-full md:w-7/12'>
           <ImageSlider images={[upb, upbeventos]} />
@@ -66,7 +66,7 @@ export const ActivityPage = () => {
         <div className='w-full md:w-5/12 flex flex-col'>
           <div id='information' className="p-8 rounded-lg shadow-lg flex-1 flex flex-col justify-between">
             <div>
-              <h1 className="text-5xl font-bold text-center mt-2 mb-4" style={{ color: "#002d62" }}>{activity.name}</h1>
+              <h1 className="text-5xl font-bold text-center mt-2 mb-4" style={{ color: "#FFFFFF" }}>{activity.name}</h1>
               <p className="text-2xl text-center font-light">Dirección: {activity.google_location}</p>
               {/* Agregamos el componente de mapa aquí */}
               <div className="mt-8">

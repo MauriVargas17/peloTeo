@@ -62,7 +62,7 @@ const ProfileForm = (token: any) => {
 
   return (
     <div className="max-w-md mx-auto mt-8">
-      <h2 className="text-2xl mb-4">Información de usuario</h2>
+      <h2 className="text-2xl mb-4 text-white">Información del usuario</h2>
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -137,8 +137,9 @@ const ProfileForm = (token: any) => {
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
+            className="bg-red-600 hover:bg-red-700 text-white font-bold mt-4 py-2 px-20 rounded focus:outline-none focus:shadow-outline"
+
           >
             Guardar cambios
           </button>

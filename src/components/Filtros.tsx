@@ -1,3 +1,4 @@
+// Filtros.tsx
 import React, { useState } from 'react';
 import tennisIcon from '../assets/tennis.png'; // Importa el icono de tennis
 import soccerIcon from '../assets/soccer.png'; // Importa el icono de soccer
@@ -14,8 +15,14 @@ function Filtros({ onCategoriaSeleccionada }: FiltrosProps) {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
 
   const handleClickCategoria = (categoria: string) => {
-    setCategoriaSeleccionada(categoria);
-    onCategoriaSeleccionada(categoria);
+    if (categoria === categoriaSeleccionada) {
+      // Deseleccionar la categoría si ya estaba seleccionada
+      setCategoriaSeleccionada('');
+      onCategoriaSeleccionada('');
+    } else {
+      setCategoriaSeleccionada(categoria);
+      onCategoriaSeleccionada(categoria);
+    }
   };
 
   return (

@@ -119,7 +119,7 @@ export const BookingComponent = ({ actividad }: ActivityProps) => {
     return (
         <div style={{ backgroundColor: "#002D62" }}>
         <div className="max-w-lg mx-auto p-5 bg-white shadow-md rounded-lg mt-10">
-            <h1 className="text-xl font-bold text-center mb-6">Reserva para {actividad.name}</h1>
+            <h1 style={{ color: "#000000" }} className="text-xl font-bold text-center mb-6">Reserva para {actividad.name}</h1>
             <form className="space-y-4">
                 <div>
                     <label className="block text-sm font-medium text-gray-700">

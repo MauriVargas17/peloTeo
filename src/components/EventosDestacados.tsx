@@ -1,3 +1,4 @@
+// EventosDestacados.tsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -22,6 +23,7 @@ interface EventosDestacadosProps {
 
 function EventosDestacados({ busqueda, categoriaSeleccionada }: EventosDestacadosProps) {
   const [actividades, setActividades] = useState<Actividad[]>([]);
+  const [actividadesFiltradas, setActividadesFiltradas] = useState<Actividad[]>([]);
 
   useEffect(() => {
     const obtenerActividades = async () => {
@@ -36,11 +38,38 @@ function EventosDestacados({ busqueda, categoriaSeleccionada }: EventosDestacado
     obtenerActividades();
   }, []);
 
-  // Filtrar las actividades según el término de búsqueda y la categoría seleccionada
-  const actividadesFiltradas = actividades.filter(actividad =>
-    actividad.name.toLowerCase().includes(busqueda.toLowerCase()) &&
-    (categoriaSeleccionada === '' || actividad.sport.toLowerCase() === categoriaSeleccionada.toLowerCase())
-  );
+  useEffect(() => {
+    if (busqueda === '' && categoriaSeleccionada === '') {
+      // Mostrar las primeras 5 actividades si no hay búsqueda ni filtro aplicado
+      setActividadesFiltradas(actividades.slice(0, 5));
+    } else {
+      // Filtrar las actividades según el término de búsqueda y la categoría seleccionada
+      const actividadesFiltradas = actividades.filter(actividad =>
+        actividad.name.toLowerCase().includes(busqueda.toLowerCase()) &&
+        (categoriaSeleccionada === '' || actividad.sport.toLowerCase() === categoriaSeleccionada.toLowerCase())
+      );
+      setActividadesFiltradas(actividadesFiltradas);
+    }
+  }, [busqueda, categoriaSeleccionada, actividades]);
+
+  // Restablecer las actividades filtradas a las primeras 5 actividades cuando se deseleccione un filtro
+  useEffect(() => {
+    if (categoriaSeleccionada === '' && busqueda === '') {
+      setActividadesFiltradas(actividades.slice(0, 5));
+    } else if (categoriaSeleccionada === '') {
+      // Si se deselecciona la categoría, se filtran las actividades solo por la búsqueda
+      const actividadesFiltradas = actividades.filter(actividad =>
+        actividad.name.toLowerCase().includes(busqueda.toLowerCase())
+      );
+      setActividadesFiltradas(actividadesFiltradas);
+    } else if (busqueda === '') {
+      // Si solo se elimina la búsqueda, se filtran las actividades solo por la categoría
+      const actividadesFiltradas = actividades.filter(actividad =>
+        actividad.sport.toLowerCase() === categoriaSeleccionada.toLowerCase()
+      );
+      setActividadesFiltradas(actividadesFiltradas);
+    }
+  }, [categoriaSeleccionada, busqueda, actividades]);
 
   return (
     <div className="my-4 overflow-x-scroll">
