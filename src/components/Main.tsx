@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Buscador from './Buscador';
 import EventosDestacados from '../components/EventosDestacados';
 import Filtros from './Filtros';

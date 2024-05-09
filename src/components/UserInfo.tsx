@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { retrieveUser, updateUser } from "../services/UserService";
 
 const ProfileForm = (token: any) => {
@@ -34,7 +34,7 @@ const ProfileForm = (token: any) => {
   }, []);
   
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
@@ -42,7 +42,7 @@ const ProfileForm = (token: any) => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     if (formData.email !== orgEmail) {
       await updateUser(userId, formData)

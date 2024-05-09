@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import Main from "../components/Main";
@@ -28,7 +28,7 @@ export const AppRoutes = () => {
         path="/admin_page"
         element={
           <PrivateRoute token={token}>
-            <AdminPage reservas={getReservations(token)} />
+            <AdminPage reservas={getReservations()} />
           </PrivateRoute>
         }
       />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import tennisIcon from '../assets/tennis.png'; // Importa el icono de tennis
 import soccerIcon from '../assets/soccer.png'; // Importa el icono de soccer
 import volleyballIcon from '../assets/volley.png';

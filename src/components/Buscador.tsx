@@ -1,5 +1,5 @@
 // Buscador.tsx
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 
 interface BuscadorProps {
   onBusqueda: (termino: string) => void;

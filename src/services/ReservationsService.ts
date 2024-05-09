@@ -1,6 +1,6 @@
 import { ReservationAdmin } from "../components/ReservationAdminCard";
 
-export const getReservations = (username: string) => {
+export const getReservations = () => {
     
     let reservations: ReservationAdmin[] = [
         {"time_init": "8:00", "time_end": "10:00", "date": "2024-05-02", "activity_location": "COE", "client_name": "Juan Perez"},

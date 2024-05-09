@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { FaUserCircle, FaWhatsapp } from 'react-icons/fa'; // Cambié FaEnvelope por FaWhatsapp
+import { FaWhatsapp } from 'react-icons/fa'; // Cambié FaEnvelope por FaWhatsapp
 import { ImageSlider } from '../components/ImageSlider';
 import { BookingComponent } from '../components/BookingComponent';
 import MapComponent from '../components/Mapa'; // Importamos el componente de mapa
